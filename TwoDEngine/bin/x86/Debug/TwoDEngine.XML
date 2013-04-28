@@ -1,0 +1,843 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TwoDEngine</name>
+    </assembly>
+    <members>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.BasicSprite">
+            <summary>
+            This class defines a basic sprite with a single image that cna be added and moved
+            around the scenegraph
+            </summary>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.AbstractSceneObject">
+            <summary>
+            This is a base class that has all the child logic for implementing scene nodes
+            It supports local and global coordinates and cooperates with the Scenegraph for rendering
+            
+            It defines two abstract methods that must be  implemented by concrete sub-classes:
+            UpdateMe -- called once per frame to allow the obejct to upate itself
+            DrawMe -- called once perame to allow the object to render itself
+            (see complete definitions below)
+            
+            This class implements a delayed child list mutation startegy to assure that changes dont 
+            interract with scanning for update
+            </summary>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObject">
+            <summary>
+            This interface defiens a  public facing set of methods that all scene objects in the
+            scene graph must implement
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.Update(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            This method is called by the Scemegraph to allow for update of
+            the object's state.  It is called once per frame.
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.UpdateChildLists">
+            <summary>
+            This method is called post update to give the grap ha chance to update
+            its actual chidl lists.
+            This has to be seperated from Update so the child lists are not mutated in the
+            middle of scanning for child updates
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            This method is called to draw the object to the screen, it is called once per frame.
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.SetPriority(System.Int32)">
+            <summary>
+             This sets or resets the obejct's draw priority in the scenegraph draw list.
+             Higher numbered objects are drawn first
+            </summary>
+            <param name="drawPriority"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.GetPriority">
+            <summary>
+            returns priority for comparison purposes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.SetLocalMatrix(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            This sets the object's local transformation matrix
+            </summary>
+            <param name="matrix"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.UpdateGlobalMatrix(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Called when parent matrix changes
+            </summary>
+            <param name="parentMatrix">the global matrix of this object's parent</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObject.Destroy">
+            <summary>
+            removes the object from the scenegraph and frees all resources
+            </summary>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjectParent">
+            <summary>
+            This interface defines a set of public methods all obejcst that can have scene objects as
+            children must implement.  All SceneObejcts are also SceneObjectParents, but not all
+            SceneObjectParents are SceneObjects.  For instance, the Scenegraph is a SceneObjectParent but
+            not a SceneObject itself.
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjectParent.GetGlobalMatrix">
+            <summary>
+            Returns the transformation matrix in the world space
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjectParent.AddChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            Adds a child to this SceneObjectParent's child list
+            </summary>
+            <param name="child">the child to add</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjectParent.RemoveChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            removes a child to this SceneObjectParent's child list
+            </summary>
+            <param name="child">the child to add</param>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.localMatrix">
+            <summary>
+            The local transform mtrix to transform from the parent's coordinate system
+            to thsi child's coordinate system
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.globalMatrix">
+            <summary>
+            The global matrix that holds the transform from gloabl space to
+            this child's coordinate system
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.drawPriority">
+            <summary>
+            The draw priority for screen ordering
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.parent">
+            <summary>
+            This child's parent object.  The root of the tree is the Scenegraph object itself
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.children">
+            <summary>
+            A list of this node's child nodes
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.childRemovalList">
+            <summary>
+            The list of chidlren to remove at the end of the child updates
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.childAdditionList">
+            <summary>
+            The list of chidlren to add at the end of the child updates
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.position">
+            <summary>
+            The sprite's current local position in the parent-gloabl coordinate space
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.rotation">
+            <summary>
+            The sprite's current local rotation in parent-gloabl coordinate space
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.origin">
+            <summary>
+            The handle by which the sprite is paled and moved in image-local coordinates
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.globalPosition">
+            <summary>
+            Current position in world space
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.globalRotation">
+            <summary>
+            Current rotation in world space
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.AbstractSceneObject.globalScale">
+            <summary>
+            currentscale in world space
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.#ctor(TwoDEngine.Scenegraph.SceneObjectParent)">
+            <summary>
+            Constructor that just stores the parent and adds this object to the parent's child list
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.UpdateChildMatrices">
+            <summary>
+            Used internally to propegate lcoal matrix chnages to children's global matricies
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.UpdateGlobalMatrix(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Updates this node's gloabl matrix based on the parent's global matrix, which
+            is passed in and this node's local matrix
+            </summary>
+            <param name="parentMatrix"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.GetGlobalMatrix">
+            <summary>
+            Returns this object's Global matrix
+            </summary>
+            <returns>the global matrix</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.AddChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            Adds a child to this object's list of children
+            </summary>
+            <param name="child">the scene graph object to add as a child</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.RemoveChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            Rempoves a child to this object's list of children
+            </summary>
+            <param name="child">the scene graph object to add as a child</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.SetPriority(System.Int32)">
+            <summary>
+            Sets the draw priority of this object in comparision to other scene graph objects
+            </summary>
+            <param name="drawPriority">the priority as per SpriteBatch.Draw</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.GetPriority">
+            <summary>
+            Returns the currently set priority
+            </summary>
+            <returns>the priority as per SpriteBatch.Draw</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.GetSize">
+            <summary>
+            Returns the width and hiehgt of this sprite as drawn on the scren
+            (not counting scaling)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            This sets up the draw matrix and then calls the implementation
+            specific draw code
+            </summary>
+            <param name="gameTime">elapsed time since last call</param>
+            <param name="batch">the srpite batch to draw to</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.DrawAt(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This MUST be overriden by sub-classes to do the actual drawing.
+            In order to get the transformation from the global matrix, draw must
+            be done using the passed in scale, translation and rotation
+            </summary>
+            <param name="batch">the sprite batch to draw to</param>
+            <param name="scale">the scale to draw at</param>
+            <param name="rotation">the rotation to draw with</param>
+            <param name="translation"> to draw at</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.Update(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            Calls the implementation specific UpdateMe and then dispacthes
+            updates to all children
+            </summary>
+            <param name="gameTime">elapsed time since last call</param>
+            <param name="graph">the scenegraph rendering this object</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.UpdateMe(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            Scene object type specific update
+            Must be overrriden to handle object update. implement as empty if there is no update logic
+            </summary>
+            <param name="gameTime">elapsed time since last call</param>
+            <param name="graph">the scenegraph doing the updating</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.UpdateChildLists">
+            <summary>
+            This method is called post update to give the grap ha chance to update
+            its actual chidl lists.
+            This has to be seperated from Update so the child lists are not mutated in the
+            middle of scanning for child updates
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.SetLocalMatrix(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Called to reset the local matrix.  Updates this node's matrix
+            and then tells all children to update their global matrices to atch
+            </summary>
+            <param name="matrix"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.RecalculateLocalMatrix">
+            <summary>
+            This method is used internally to reclaculate the transformation matrix
+            whenever , rotation or origin change
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.SetLocalPosition(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            This sets the position of this sprite's handle in the parent's global coordinate system
+            </summary>
+            <param name="pos">The position as an x,y vector</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.SetHandle(Microsoft.Xna.Framework.Vector2)">
+            <summary> 
+            This sets the handle of the sprite in sprite image-local coordinates
+            </summary>
+            <param name="orig">The handle pixel as an x,y vector</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.GetLocalPosition">
+            <summary>
+            This gets the current position in the parent-global coordinate system
+            </summary>
+            <returns>The current position as an x,y vector</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.SetLocalRotation(System.Single)">
+            <summary>
+            Sets the rotation as a local offset to the parent's global rotation
+            </summary>
+            <param name="rot">The local rotation in radians</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.AbstractSceneObject.GetLocalRotation">
+            <summary>
+            Sets the rotation as a local offset to the parent's global rotation in radians
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.image">
+            <summary>
+            The image to draw for this sprite
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.collisionList">
+            <summary>
+            List of other sprites to check for collision with
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.#ctor(TwoDEngine.Scenegraph.SceneObjectParent)">
+            <summary>
+            This creates a sprite with no image
+            Note that the Scenegraph itself is a SceneObjectParent and represents
+            the root of the scenegraph
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.#ctor(TwoDEngine.Scenegraph.SceneObjectParent,Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            This creates a sprite with the passed in image
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+            <param name="image">The image to draw for the sprite</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.#ctor(TwoDEngine.Scenegraph.SceneObjectParent,TwoDEngine.Scenegraph.SceneObjects.SpriteImage)">
+            <summary>
+            This creates a sprite with the passed in image
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+            <param name="image">The image to draw for the sprite</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.DrawAt(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This is an abstract method that must be made concrete by any sub-class of AbstractSceneObject 
+            it is responsible for drawing the imagery given the passed in scale, rotation and translation
+            which are all in global screen coordinates
+            </summary>
+            <param name="batch"> The sprite batch to use to draw the sprite</param>
+            <param name="scale"> A scale factor to apply to the sprite</param>
+            <param name="rotation"> A rotation to apply to the drawn sprite</param>
+            <param name="translation"> A translation to apply to the drawn sprite</param>
+            <param name="priority"> The draw priority.  By default the only draw order gaurantee is that parent scene
+            graph objects are drawn befoe their children, but this may be used to impose additional order constraints</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicSprite.UpdateMe(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            This update just advances frames and checks for collisions
+            </summary>
+            <param name="gameTime"> the elapsed time since last call</param>
+            <param name="graph">the scenegraph this SceneObject is attached to</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MultiImageSprite.#ctor(TwoDEngine.Scenegraph.SceneObjectParent)">
+            <summary>
+            This creates a sprite with no image
+            Note that the Scenegraph itself is a SceneObjectParent and represents
+            the root of the scenegraph
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MultiImageSprite.#ctor(TwoDEngine.Scenegraph.SceneObjectParent,Microsoft.Xna.Framework.Graphics.Texture2D)">
+            <summary>
+            This creates a sprite with the passed in image
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+            <param name="image">The image to draw for the sprite</param>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage">
+            <summary>
+            This class defines a sprite image that is a single static image
+            </summary>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.SpriteImage">
+            <summary>
+            This interface defines an image for a sprite to draw.
+            It is used to hide the difference between basic images and
+            animations or other image effects
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SpriteImage.Update(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            This is called once per frame with the elapsed time so the imagery
+            can be updated nased on time
+            </summary>
+            <param name="gameTime">elpased time sicne last drawn</param>
+            <param name="graph">the scene graph rendering this object</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SpriteImage.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This is called by the sprite code to actually draw the image
+            </summary>
+            <param name="batch"> a sprite batch to draw to</param>
+            <param name="dest">position of the drawing origin in screen coordinates</param>
+            <param name="rotation"> an amount to rotate the imagery by</param>
+            <param name="priority">the draw priority of this imgery</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SpriteImage.GetCurrentImageSize">
+            <summary>
+            Returns the wdth and height of the last image drawn
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SpriteImage.GetCollider">
+            <summary>
+            Returns a physics collider that encompasses the current image
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SpriteImage.SetColliderTransform(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Sets the current transform of the collider associated with this image
+            </summary>
+            <param name="m"> An XNA transformation matrix</param>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage.image">
+            <summary>
+            The image to draw
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D)">
+             <summary>
+             A constructor that takes an image and returns a SpriteImage object
+            
+             </summary>
+             <param name="image">the  image this object will draw</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage.Update(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            Called to update the image for the passage of time.  
+            Since a SimpleSpriteImage represents a single static image, it is a NOP
+            </summary>
+            <param name="gameTime">elapsed time since last call</param>
+            <param name="graph">the scene graph that is controlling the render of this sprite image</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This draws the static image at the passed in location and rotation
+            </summary>
+            <param name="batch">the sprite batch to use to render the image</param>
+            <param name="dest">a rectangle in screen pixel coordinates that indicates where to draw the image</param>
+            <param name="rotation">a rotation for the image</param>
+            <param name="priority">the priority of this draw operation</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.SimpleSpriteImage.GetCurrentImageSize">
+            <summary>
+            Returns the size of this static image
+            </summary>
+            <returns>a Vector2 where X = image width and Y = image height</returns>
+        </member>
+        <member name="M:TwoDEngine.Physics.Physics.Initialize">
+            <summary>
+            Allows the game component to perform any initialization it needs to before starting
+            to run.  This is where it can query for any required services and load content.
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Physics.Physics.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game component to update itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.MOB">
+            <summary>
+            This class implements a Movable OBject, or MOB.
+            This is a self moving sprite that has a veclocity and destination to move towards 
+            </summary>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite">
+            <summary>
+            This sub-class of BasicSprite adds TileMap awareness.
+            Positoning can be done by either pixel or cell position, and
+            conversion routines are provided to convert between the two coordinate systems
+            
+            A test routine is also provided to see if the current image extents of the sprite
+            impinge on a blocked tile.  This bases on there being a non zero entry on the map
+            layer "blocking" for the blocked tile
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.tileMap">
+            <summary>
+            The tilemap this sprite is a  (maybe indirect) child of
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.#ctor(TwoDEngine.Scenegraph.SceneObjects.TileMap,TwoDEngine.Scenegraph.SceneObjectParent,Microsoft.Xna.Framework.Graphics.Texture2D)">
+             <summary>
+              Creates a new BasicTilemapSprite parented to the passed in parent
+             </summary>
+            
+             <param name="map">The tilemap this sprite is a (potentially indirect) child of</param>
+             <param name="parent">The parent scene graph object</param>
+             <param name="image">The image to draw for the sprite</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.#ctor(TwoDEngine.Scenegraph.SceneObjects.TileMap,TwoDEngine.Scenegraph.SceneObjectParent)">
+             <summary>
+              Creates an empty (invisible) BasicTilemapSprite parented to the passed in parent
+             </summary>
+            
+             <param name="map">The tilemap this sprite is a (potentially indirect) child of</param>
+             <param name="parent">The parent scene graph object</param> /// <param name="image">The image to draw for the sprite</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.SetLocalCellPosition(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Sets the local position to the centroid of the cell passed in
+            </summary>
+            <param name="pos">The local positiuon in cell coordinates</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.CellToPixel(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            COnverts a Vector2 from cell coordinates to the pixel coordinates of its centroid
+            </summary>
+            <param name="pos">the position in cell oordinates</param>
+            <returns>the pixel coordinates of the cell center</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.GetLocalCellPosition">
+            <summary>
+            Returns the local position of the sprite in cell coordinates
+            </summary>
+            <returns>The cell containg the sprite's local position</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.PixelToCell(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Converts a vector in pixel coordinates to the cell coordinates of its enclosing cell
+            </summary>
+            <param name="pixelPos">position in pixels</param>
+            <returns>The cell containing the passed in pixel</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.PositionCollidesWithBlocking(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            This method tests a the extents of the sprite for collision with a blockign sqaure or the edge of
+            the tile map as if the sprite's local coordinates were newPos.
+            Note:  The current test only tests the corners of the extents.  If a sprite is bigger then the
+            cell size it is possible for a blocked cell to be wholly enclsoed and this will return false
+            </summary>
+            <param name="newPos">The position to test</param>
+            <returns>true if a blocking cell is inetrsected</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.BasicTilemapSprite.GetTileMap">
+            <summary>
+            Acessor to get the TileMap set when this sprite was created
+            </summary>
+            <returns>the TileMap that is a (potentially indirect) parent of this sprite</returns>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.MOB.pixelPerSecSpeed">
+            <summary>
+            The movement speed of the sprite when in motion
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.MOB.destinationPixel">
+            <summary>
+            The local pixel location we are moving towards
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.MOB.velocityPixPerSec">
+            <summary>
+            This is a vector that holds the velocity and direction decomposed
+            into dx and dy per second
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.MOB.moving">
+            <summary>
+            A flag that says we are currently in motion
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.#ctor(TwoDEngine.Scenegraph.SceneObjects.TileMap,TwoDEngine.Scenegraph.SceneObjectParent,Microsoft.Xna.Framework.Graphics.Texture2D,System.Single)">
+             <summary>
+              Creates an MOB from the passed in image, parented to the passed in parent, that mvoes at the given speed
+             </summary>
+            
+             <param name="map">The tilemap this sprite is a (potentially indirect) child of</param>
+             <param name="parent">The parent scene graph object</param> /// <param name="image">The image to draw for the sprite</param>
+             <param name="image">The image to draw for the sprite</param>
+             <param name="pixelPerSecSpeed">The movement speed of the MOB</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.MoveToCell(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            This method is called to start the tank rolling towards another cell on the tile map.
+            The coordinates are converted to pixel coordinates and sent to the real movment code
+            </summary>
+            <param name="cellDestination">The coordinates of the destination cell</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.MoveToPixel(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            This method starts the tnak rolling towards a destination pixel
+            </summary>
+            <param name="dest">The parent-local coordinates of the destination pixel</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.GetPPSSpeed">
+            <summary>
+            Returns the speed of this MOB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.IsMoving">
+            <summary>
+            Returns whether or not this MOB is currently in motion
+            </summary>
+            <returns>true if moving, else false</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.MOB.UpdateMe(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            This method is responsible for the update of the MOB. It adds movement
+            behavior to the  BasicTilemapSprite beahvior
+            </summary>
+            <param name="gameTime">elapsed tiem since last call</param>
+            <param name="graph">scenegraph this MOb is (potentially indirectly) parented to</param>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.TileMap">
+            <summary>
+            This is a special kind of sprite that uses the rendering of a tile map as its imagery
+            and provides query functions on the tile map data
+            Other then that its just like a BasicSprite
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.TileMap.tiledMap">
+            <summary>
+            This is an instance of a (modified) thrid party class that actually loads the TileD map information and
+            holds it for us
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.#ctor(Microsoft.Xna.Framework.Game,TwoDEngine.Scenegraph.SceneObjectParent,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="game"></param>
+            <param name="parent"></param>
+            <param name="tilemapFile"> The name of a TMX (tiled XML) format file. Note that Tiled MUST be set in preferences to
+            store level data as uncompressed XML</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.GetCellSize">
+            <summary>
+            Returns the size in pixels of a cell on the tile map
+            </summary>
+            <returns>the size of a single cell in pixels, x==width  y===height</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.GetTileIndex(System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Returns the tile index number of a tile cell at the passed cell coordinate in the passed
+            in layer.
+            </summary>
+            <param name="layerName">The name of the layer to be read</param>
+            <param name="pos">The coordinates of the cell in cell coordinates</param>
+            <returns>0 if the specified cell position is empty</returns>
+            <exception cref="T:TwoDEngine.Scenegraph.SceneObjects.NonExistantLayerException">if the passed in layer is not in the current tile map</exception>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.GetCellsWithProperty(System.String,System.String,System.String)">
+            <summary>
+            This method gets all cells in the passed in layer whose tiles have the passed in property
+            </summary>
+            <param name="layerName">the name of the layer to query</param>
+            <param name="key">A key to match in the tile parameters</param>
+            <param name="value">A value to match, or null to match all values</param>
+            <returns>An array of the cell coordinates of all the macthing cells</returns>
+            <exception cref="T:TwoDEngine.Scenegraph.SceneObjects.NonExistantLayerException">if the passed in layer is not in the current tile map</exception>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.GetPixelSize">
+            <summary>
+            Returns the dimensions of the entire map in pixels
+            </summary>
+            <returns>the size in pixes</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.DrawAt(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This overrides the BasicSprite draw that draws one or a squence of image with code
+            that draws multiple layered arrays of tiles.
+            It will not draw layers that have ahd their visibility toggled off in  the tile editor
+            </summary>
+            <param name="batch">a SpriteBatch to draw the tiles to</param>
+            <param name="scale">a scale to scale all images to</param>
+            <param name="rotation">a rotation to rotate the tiles</param>
+            <param name="translation">a pixel position to start draw at</param>
+            <param name="priority"> a priority to draw all the tiles at</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.TileMap.UpdateMe(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            currently does nothing
+            </summary>
+            <param name="gameTime"></param>
+            <param name="graph"></param>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage">
+            <summary>
+            This defines a sprite image that is a series of image frames
+            chnaged over time
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.image">
+            <summary>
+            The image that contains all the frames
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.frames">
+            <summary>
+            This is an array of frames within the image
+            a single frame sprite has only one entry
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.secPerFrame">
+            <summary>
+            This is the seconds per frame on an animated sprite
+            A single image sprite has this set to MAX FLOAT;
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.frameIndex">
+            <summary>
+            This is the frame index of the currently displayed frame.  In a single image
+            sprite this is always 0
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.elapsedFrameTime">
+            <summary>
+            Tracks the smount of time since the last frame change
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle[],System.Single)">
+            <summary>
+            This creates a sprite image with the passed in image strip, frame size and
+            frame coordinates
+            </summary>
+            <param name="parent">The parent scene graph object</param>
+            <param name="image">The image to draw for the sprite</param>
+            <param name="frameSize">The width and height of each frame in the strip</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,System.Int32,System.Single)" -->
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.Update(Microsoft.Xna.Framework.GameTime,TwoDEngine.Scenegraph.Scenegraph)">
+            <summary>
+            This update just advances frames.
+            </summary>
+            <param name="gameTime"> the elapsed time since last call</param>
+            <param name="graph">the scenegraph this SceneObject is attached to</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>
+            This draws the current frame
+            </summary>
+            <param name="batch">the sprite batch to use to render the image</param>
+            <param name="dest">a rectangle in screen pixel coordinates that indicates where to draw the image</param>
+            <param name="rotation">a rotation for the image</param>
+            <param name="priority">the priority of this draw operation</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.SceneObjects.AnimatedSpriteImage.GetCurrentImageSize">
+            <summary>
+            This gets the wisth and height of the last frame drawn
+            </summary>
+            <returns>a Vector2 where X = image width and Y = image height</returns>
+        </member>
+        <member name="T:TwoDEngine.Scenegraph.Scenegraph">
+            <summary>
+            This is the scene graph manager It registeres itself as a DrawableGameComponent to
+            receieve XNA Update and Draw calls.  It also registers itself both with XNA's service
+            registry and TwoDEngine' (superior) Registry.
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.Scenegraph.sceneGraphBatch">
+            <summary>
+            A sprite batch used to  render all SceneObjects in the scene graph
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.Scenegraph.children">
+            <summary>
+            The scenegraph itself is the root of the scenegraph tree.  This holds a list of
+            its' children
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.Scenegraph.freeze">
+            <summary>
+            When true, this stops all scenegraph updating
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.Scenegraph.childRemovalList">
+            <summary>
+            The list of chidlren to remove at the end of the child updates
+            </summary>
+        </member>
+        <member name="F:TwoDEngine.Scenegraph.Scenegraph.childAdditionList">
+            <summary>
+            The list of chidlren to add at the end of the child updates
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect)">
+            <summary>
+            Constructs a scenegraph for the passed in Game.
+            Registers itself both with XNA's Services registry and TwoDEngine' (superior) Registry.
+            </summary>
+            <param name="game"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.Initialize">
+            <summary>
+            Creates the SpriteBatch used for rendering
+            </summary>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called by teh XNA engine once per frame. It in turn calls 
+            all its children's Update mthods.  (Which in turn does internal hosuekeeping
+            and then calls the SceneObject sub-type specific UpdateMe call.)
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the scenegraph to the screen by starting a top down descent of
+            game objects.  Each game object handles its own children.  Each child calls
+            its GameObject subtype specific DrawMe to render to the sprite batch
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.GetGlobalMatrix">
+            <summary>
+            Returns the gobal tramsform matrix of this object which is always the Identity
+            matrix.
+            </summary>
+            <returns>The Identity matrix</returns>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.AddChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            Adds a child to this object's child list
+            </summary>
+            <param name="child">A SceneObject to parent to the root</param>
+        </member>
+        <member name="M:TwoDEngine.Scenegraph.Scenegraph.RemoveChild(TwoDEngine.Scenegraph.SceneObject)">
+            <summary>
+            Removes a child to this object's child list
+            </summary>
+            <param name="child">A SceneObject to parent to the root</param>
+        </member>
+    </members>
+</doc>

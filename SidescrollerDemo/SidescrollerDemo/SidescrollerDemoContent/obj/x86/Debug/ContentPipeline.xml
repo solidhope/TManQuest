@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Textures\Gem.png</Source>
+      <Name>Textures\Gem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Gem.xnb</Output>
+      <Time>2013-04-27T14:55:43-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\PlatformTiles.png</Source>
+      <Name>Textures\PlatformTiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\PlatformTiles.xnb</Output>
+      <Time>2013-04-27T14:55:44-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Gem.png</Source>
+      <Name>Textures\Sprites\Gem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Gem.xnb</Output>
+      <Time>2013-04-27T14:55:52-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterA\Die.png</Source>
+      <Name>Textures\Sprites\MonsterA\Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterA\Die.xnb</Output>
+      <Time>2013-04-27T14:55:53-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterA\Idle.png</Source>
+      <Name>Textures\Sprites\MonsterA\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterA\Idle.xnb</Output>
+      <Time>2013-04-27T14:55:54-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterA\Run.png</Source>
+      <Name>Textures\Sprites\MonsterA\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterA\Run.xnb</Output>
+      <Time>2013-04-27T14:55:56-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterB\Die.png</Source>
+      <Name>Textures\Sprites\MonsterB\Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterB\Die.xnb</Output>
+      <Time>2013-04-27T14:55:56-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterB\Idle.png</Source>
+      <Name>Textures\Sprites\MonsterB\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterB\Idle.xnb</Output>
+      <Time>2013-04-27T14:55:58-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterB\Run.png</Source>
+      <Name>Textures\Sprites\MonsterB\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterB\Run.xnb</Output>
+      <Time>2013-04-27T14:55:59-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterC\Die.png</Source>
+      <Name>Textures\Sprites\MonsterC\Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterC\Die.xnb</Output>
+      <Time>2013-04-27T14:56:00-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterC\Idle.png</Source>
+      <Name>Textures\Sprites\MonsterC\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterC\Idle.xnb</Output>
+      <Time>2013-04-27T14:56:02-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterC\Run.png</Source>
+      <Name>Textures\Sprites\MonsterC\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterC\Run.xnb</Output>
+      <Time>2013-04-27T14:56:04-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterD\Die.png</Source>
+      <Name>Textures\Sprites\MonsterD\Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterD\Die.xnb</Output>
+      <Time>2013-04-27T14:56:05-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterD\Idle.png</Source>
+      <Name>Textures\Sprites\MonsterD\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterD\Idle.xnb</Output>
+      <Time>2013-04-27T14:56:06-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\MonsterD\Run.png</Source>
+      <Name>Textures\Sprites\MonsterD\Run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\MonsterD\Run.xnb</Output>
+      <Time>2013-04-27T14:56:07-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\Celebrate.png</Source>
+      <Name>Textures\Sprites\Player\Celebrate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\Celebrate.xnb</Output>
+      <Time>2013-04-27T14:56:08-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\Die.png</Source>
+      <Name>Textures\Sprites\Player\Die</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\Die.xnb</Output>
+      <Time>2013-04-27T14:56:09-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\Idle.png</Source>
+      <Name>Textures\Sprites\Player\Idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\Idle.xnb</Output>
+      <Time>2013-04-27T14:56:10-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\Jump.png</Source>
+      <Name>Textures\Sprites\Player\Jump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\Jump.xnb</Output>
+      <Time>2013-04-27T14:56:11-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\RunLeft.png</Source>
+      <Name>Textures\Sprites\Player\RunLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\RunLeft.xnb</Output>
+      <Time>2013-04-27T14:56:12-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TitleScreen.png</Source>
+      <Name>Textures\TitleScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\TitleScreen.xnb</Output>
+      <Time>2013-04-27T14:55:49-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TerrainTiles.png</Source>
+      <Name>Textures\TerrainTiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\TerrainTiles.xnb</Output>
+      <Time>2013-04-27T14:55:45-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Sprites\Player\RunRight.png</Source>
+      <Name>Textures\Sprites\Player\RunRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Textures\Sprites\Player\RunRight.xnb</Output>
+      <Time>2013-04-27T14:56:13-04:00</Time>
+    </Item>
+    <Item>
+      <Source>main.png</Source>
+      <Name>main</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\main.xnb</Output>
+      <Time>2013-04-27T14:55:32-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Player.png</Source>
+      <Name>Player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\Player.xnb</Output>
+      <Time>2013-04-27T14:55:39-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ScreenFont.spritefont</Source>
+      <Name>ScreenFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\ScreenFont.xnb</Output>
+      <Time>2013-04-27T14:55:40-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemo\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-04-27T19:56:01.8536215-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

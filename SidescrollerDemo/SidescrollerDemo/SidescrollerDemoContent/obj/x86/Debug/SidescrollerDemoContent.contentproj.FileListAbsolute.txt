@@ -1,0 +1,4 @@
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\obj\x86\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Lab\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Justin\Downloads\TwoDEngine Library Project\TwoDEngine Library Project\SidescrollerDemo\SidescrollerDemo\SidescrollerDemoContent\obj\x86\Debug\SidescrollerDemoContent.contentprojResolveAssemblyReference.cache

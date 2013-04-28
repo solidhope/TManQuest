@@ -1,0 +1,2 @@
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTestsContent\obj\x86\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTestsContent\obj\x86\Debug\ResolveAssemblyReference.cache

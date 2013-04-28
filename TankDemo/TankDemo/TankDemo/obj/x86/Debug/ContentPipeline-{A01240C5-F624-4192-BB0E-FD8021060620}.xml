@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Textures\TankBody.png</Source>
+      <Name>Textures\TankBody</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\bin\x86\Debug\Content\Textures\TankBody.xnb</Output>
+      <Time>2013-03-10T20:16:39-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TankTurret.png</Source>
+      <Name>Textures\TankTurret</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\bin\x86\Debug\Content\Textures\TankTurret.xnb</Output>
+      <Time>2013-03-10T20:18:56-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Woodland_Tileset.png</Source>
+      <Name>Woodland_Tileset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\bin\x86\Debug\Content\Woodland_Tileset.xnb</Output>
+      <Time>2013-03-14T16:38:04-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TerrainTiles.png</Source>
+      <Name>TerrainTiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\bin\x86\Debug\Content\TerrainTiles.xnb</Output>
+      <Time>2013-03-14T19:13:46-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{A01240C5-F624-4192-BB0E-FD8021060620}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemoContent\</RootDirectory>
+      <LoggerRootDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\</LoggerRootDirectory>
+      <IntermediateDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TankDemo\TankDemo\TankDemo\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-01-19T17:06:09.3425011-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

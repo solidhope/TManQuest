@@ -1,0 +1,4 @@
+\\vmware-host\Shared Folders\Desktop\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNA\obj\x86\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+Z:\Desktop\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNA\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Desktop\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3.1 Samples XNA\Samples XNA\Samples XNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

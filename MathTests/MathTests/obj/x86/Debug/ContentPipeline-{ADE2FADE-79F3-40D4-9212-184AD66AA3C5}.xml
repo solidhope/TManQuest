@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{ADE2FADE-79F3-40D4-9212-184AD66AA3C5}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTestsContent\</RootDirectory>
+      <LoggerRootDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\</LoggerRootDirectory>
+      <IntermediateDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-01-19T17:06:09.3425011-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

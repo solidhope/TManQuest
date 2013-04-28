@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Woodland_Tileset" tilewidth="32" tileheight="32">
+  <image source="Documents/Visual Studio 2010/Projects/TwoDEngine Library Project/TankDemo/TankDemoContent/Woodland_Tileset.png" trans="ffffff" width="512" height="512"/>
+ </tileset>
+ <layer name="Terrain" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzjERgEAMALC+OUABoADwr4DOnWDr3WfInhERA/hlSWuxNXjNak9HcTZ4zepKd/E0eAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB89QIVzC0d
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzrENACAMA8FIWZlNWDgjQBEFirvuXTkCAIBX1sWWE0fgc/vQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQqQAclAIS
+  </data>
+ </layer>
+</map>

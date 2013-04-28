@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A0494729-96A9-4EE1-893A-D2E85B6877AD}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TwoDEngine</RootNamespace>
+    <AssemblyName>TwoDEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>725bf5e6-5bfa-4531-9559-d1f388343e65</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+    <DocumentationFile>bin\x86\Debug\TwoDEngine.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Network_old\GameProtocol.cs" />
+    <None Include="Network_old\GameProtocolListener.cs" />
+    <None Include="Network_old\LANGameImpl.cs" />
+    <None Include="Network_old\LANGameManager.cs" />
+    <None Include="Network_old\NetworkGame.cs" />
+    <None Include="Network_old\NetworkGameListener.cs" />
+    <None Include="Network_old\NetworkGameManager.cs" />
+    <None Include="Network_old\NetworkGamePlayer.cs" />
+    <None Include="Network\LocalLANGame.cs" />
+    <None Include="Network\NetworkGame.cs" />
+    <None Include="Network\NetworkGameListener.cs" />
+    <None Include="Network\GameProtocol.cs" />
+    <None Include="Network\GameProtocolListener.cs" />
+    <None Include="Network\LANGameManager.cs" />
+    <None Include="Network_old\Copy of NetworkGameManager.cs" />
+    <None Include="Network\NetworkGameManager.cs" />
+    <None Include="Network\RemoteLANGame.cs" />
+    <Compile Include="Scenegraph\AI\AStarPathFinder.cs" />
+    <Compile Include="MissingServiceException.cs" />
+    <Compile Include="Physics\Collider.cs" />
+    <Compile Include="Physics\Colliders\AbstractCollider.cs" />
+    <Compile Include="Physics\Colliders\BoxCollider.cs" />
+    <Compile Include="Physics\Colliders\CircleCollider.cs" />
+    <Compile Include="Scenegraph\AbstractSceneObject.cs" />
+    <Compile Include="MathUtils.cs" />
+    <Compile Include="Physics\Phsyics.cs" />
+    <Compile Include="Registry.cs" />
+    <Compile Include="Scenegraph\SceneObjectParent.cs" />
+    <Compile Include="Scenegraph\SceneObjects\AnimatedSpriteImage.cs" />
+    <Compile Include="Scenegraph\SceneObjects\BasicSprite.cs" />
+    <Compile Include="Scenegraph\SceneObjects\BasicTilemapSprite.cs" />
+    <Compile Include="Scenegraph\SceneObject.cs" />
+    <Compile Include="Scenegraph\Scenegraph.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenegraph\SceneObjects\MOB.cs" />
+    <Compile Include="Scenegraph\SceneObjects\MultiImageSprite.cs" />
+    <Compile Include="Scenegraph\SceneObjects\NonExistantLayerException.cs" />
+    <Compile Include="Scenegraph\SceneObjects\SimpleSpriteImage.cs" />
+    <Compile Include="Scenegraph\SceneObjects\SpriteImage.cs" />
+    <Compile Include="Scenegraph\SceneObjects\TextSprite.cs" />
+    <Compile Include="Scenegraph\TileMap.cs" />
+    <Compile Include="Scenegraph\SceneObjects\Tiled.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="third party\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Farseer Physics Engine 3.3 XNA\Farseer Physics XNA.csproj">
+      <Project>{0A850700-1ABB-4288-A391-6726B90EBEB9}</Project>
+      <Name>Farseer Physics XNA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

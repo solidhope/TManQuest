@@ -1,0 +1,19 @@
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\obj\x86\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\bin\x86\Debug\MathTests.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\bin\x86\Debug\MathTests.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\bin\x86\Debug\TwoDEngine.dll
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\bin\x86\Debug\TwoDEngine.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\obj\x86\Debug\MathTests.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WindowsGameLibrary1\MathTests\MathTests\obj\x86\Debug\MathTests.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\MathTests.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\MathTests.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\TwoDEngine.dll
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\TwoDEngine.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\obj\x86\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\obj\x86\Debug\MathTests.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\obj\x86\Debug\MathTests.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\FarseerPhysicsXNA.dll
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\FarseerPhysicsXNA.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\TwoDEngine Library Project\MathTests\MathTests\bin\x86\Debug\FarseerPhysicsXNA.xml
